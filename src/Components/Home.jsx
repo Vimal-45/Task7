@@ -14,8 +14,9 @@ import "slick-carousel/slick/slick-theme.css";
 const Home = () => {
 
 
-    const { value, value2 } = useSelector(state => state.noteAppReducer);
+    
     const dispatch = useDispatch();
+    const { value, value2 } = useSelector(state => state.noteAppReducer);
     const [showModal, setShowModal] = useState(false);
     const [editedNote, setEditedNote] = useState({ id: '', Title: '', Note: '' });
     var settings = {

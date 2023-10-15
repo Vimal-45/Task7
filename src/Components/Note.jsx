@@ -24,9 +24,18 @@ const Note = () => {
     },[])
 
     const originalDate = new Date();
-    const formattedDateString = `${originalDate.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' })}`;
+    const formattedDateString = `${originalDate.toLocaleString('en-US', {
+             month: 'short', 
+             day: 'numeric',
+             year: 'numeric', 
+             hour: 'numeric', 
+             minute: 'numeric', 
+              })}`;
 
-    const Time = `${originalDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric' })}`;
+    const Time = `${originalDate.toLocaleString('en-US', { 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        second: 'numeric' })}`;
 
     // console.log(formattedDateString);
     const [currentTime, setCurrentTime] = useState(formattedDateString);

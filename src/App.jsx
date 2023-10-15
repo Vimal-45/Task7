@@ -20,11 +20,11 @@ const App = () => {
       <Sidebar/>
         <Routes>
 
-          <Route path='/' element={<Home/>}/>
-          <Route path='/note' element={<Note/>}/>
-          <Route path='/task' element={<Task/>}/>
-          <Route path='/archive' element={<Archive/>}/>
-          <Route path='/bin' element = {<Bin/>}/>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/note' element={<Note/>}/>
+            <Route path='/task' element={<Task/>}/>
+            <Route path='/archive' element={<Archive/>}/>
+            <Route path='/bin' element = {<Bin/>}/>
         </Routes>      
       </Provider>
     </div>

@@ -1,19 +1,38 @@
 import { createSlice } from '@reduxjs/toolkit'
-import Data from './Data.json'
+// import Data from './Data.json'
 
-const initialState = Data;
-
+const initialState = {
+  archiveItems : [],
+  deletedItems : [],
+  user:[],
+  value:[],    
+  value2:[]
+}
 
 const NoteSlice = createSlice({
   name: "noteApp",
   initialState,
   reducers: {
+
+    fetchData: (state, action) => {
+      state.user = action.payload.user;
+      state.value = action.payload.value;
+      state.value2= action.payload.value2;
+      state.archiveItems = action.payload.archiveItems;
+      state.deletedItems = action.payload.deletedItems
+      console.log(state);
+
+    },
+
     addNote: (state, action) => {
 
       const id = 4 + Math.floor(Math.random() * 300);
       console.log(action.payload.currentTime)
-      state.value = [...state.value, { id: id, Title: action.payload.title, Note: action.payload.note, setDay:action.payload.currentTime }]
-      
+      state.value = [...state.value, { id: id,
+         Title: action.payload.title, 
+         Note: action.payload.note, 
+         Time :action.payload.currentTime }]
+
 
 
     },
@@ -27,7 +46,7 @@ const NoteSlice = createSlice({
       // console.log(action.payload);
       state.value = state.value.map((item) => {
         if (item.id === action.payload.id) {
-          
+
           return {
             ...item,
             Title: action.payload.Title,
@@ -56,5 +75,5 @@ const NoteSlice = createSlice({
 
 })
 
-export const { addNote, addTask, UPDATE, DELETE, ARCHIVE } = NoteSlice.actions;
+export const { addNote, addTask, UPDATE, DELETE, ARCHIVE, fetchData } = NoteSlice.actions;
 export default NoteSlice.reducer;
